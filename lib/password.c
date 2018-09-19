@@ -32,7 +32,8 @@ Password *gen_password_by_string(char *string, size_t len) {
   // strncpy(pass->x, decoded, PASS_LENGTH);
   // copy data
   // wtf: don't use strncpy...
-  for (int i = 0; i < PASS_LENGTH; i++) {
+  int i;
+  for (i = 0; i < PASS_LENGTH; i++) {
     pass->x[i] = decoded[i];
   }
   free(decoded);
@@ -64,7 +65,8 @@ Password *rand_password() {
 
 // encode
 void encode_data(byte bytes[], int size, Password *encode_pass) {
-  for (int i = 0; i < size; i++) {
+  int i;
+  for (i = 0; i < size; i++) {
     bytes[i] = encode_pass->x[bytes[i]];
   }
 }
